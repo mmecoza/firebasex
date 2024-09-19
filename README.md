@@ -195,6 +195,7 @@ To help ensure this plugin is kept updated, new features are added and bugfixes 
     - [listenToDocumentInFirestoreCollection](#listentodocumentinfirestorecollection)
     - [listenToFirestoreCollection](#listentofirestorecollection)
     - [removeFirestoreListener](#removefirestorelistener)
+    - [writeBatchToFirestoreCollection](#writeBatchToFirestoreCollection)
   - [Functions](#functions)
     - [functionsHttpsCallable](#functionshttpscallable)
   - [Installations](#installations)
@@ -5034,6 +5035,28 @@ FirebasePlugin.removeFirestoreListener(
     },
     listenerId
 );
+```
+
+### writeBatchToFirestoreCollection
+
+This can be used to write batch documents with id field to a Firestore instance. id is required.
+
+```javascript
+
+let collection = 'my_collection';
+let data = [{id: '0000-0000'},  {id: '0000-0001'} ...];
+
+FirebasePlugin.removeFirestoreListener(
+    collection,
+    data,
+    function () {
+        console.log("Successfully removed listener");
+    },
+    function (error) {
+        console.error("Error removing listener: " + error);
+    }
+);
+
 ```
 
 ## Functions
